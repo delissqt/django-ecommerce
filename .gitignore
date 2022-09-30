@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+#*
+.gitignore
+.idea
+/Scripts
+/Lib
+src/trydjango/__pycache__/
