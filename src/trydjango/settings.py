@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #own
+    'products',
 ]
 #todo NOTES INSTALED_APPS: This is a cornerstone. By default there´s a bunch of them installed by default
 
