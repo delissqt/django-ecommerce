@@ -32,3 +32,37 @@ Create Product from python shell
 Go to Admin panel in order to view the new product created
 
 ``127.0.0.1/admin``
+
+
+## Views 
+
+Think of views as a place that handle your various web pages.
+
+## ULR in Django project
+ There are two ways to import and use urls.py
+
+Way 1 
+``````commandline
+from django.contrib import admin
+from django.urls import path
+
+from pages import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.home_view, name='home')
+]
+``````
+
+Way 2
+``````commandline
+from django.contrib import admin
+from django.urls import path
+
+from pages.views import home_view 
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home_view, name='home'),
+]
+``````
