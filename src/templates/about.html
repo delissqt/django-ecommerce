@@ -2,7 +2,19 @@
 
 {% block content %}
     <h1>About page</h1>
+
+    <h3>{{ title|center:"15"|capfirst|upper }}</h3>
+
     <p>This is a template too for about page</p>
+
+    <hr/>
+    {{ my_html|safe }}
+        <br/>
+    {{ my_html|striptags }}
+<br/>
+    {{ my_html|slugify }}
+    {{ my_html|striptags|slugify }}
+    <hr/>
 
     <p>
         {{ my_text }}, {{ my_number }}
