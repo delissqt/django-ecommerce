@@ -13,8 +13,25 @@
     <br/><hr/>
 
     <ul>
-        {%  for my_sub_item in my_list %}
-        <li>{{ forloop.counter }}  -  {{ my_sub_item }}</li>
+        {%  for abc in my_list %}
+            {% if abc == 312 %}
+                <li>{{ forloop.counter }}  -  {{ abc|add:22 }}</li>
+            {% endif %}
+        <li>{{ forloop.counter }}  -  {{ abc }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr/>
+
+    <ul>
+        {%  for abc in my_list %}
+            {% if abc == 312 %}
+                <li>{{ forloop.counter }}  -  {{ abc|add:22 }}</li>
+            {% elif abc == "abc" %}
+                <li>This is not a network</li>
+            {% else %}
+                <li>{{ forloop.counter }}  -  {{ abc }}</li>
+            {% endif %}
         {% endfor %}
     </ul>
 
