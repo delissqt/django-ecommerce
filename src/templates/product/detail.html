@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Item</h1>
+    <br/>
+    <h1>{{ title }}</h1>
+    <h2>{{ description }}</h2>
+    <h3>{{ price }}</h3>
+
+<!--    <p>-->
+<!--        {% if description %}-->
+<!--            {{ description }}-->
+<!--        {% else %}-->
+<!--            Description Comming Soon-->
+<!--        {% endif %}-->
+<!--    </p>-->
+
+<!--    <hr/>-->
+
+<!--    <p>-->
+<!--        {% if not description %}-->
+<!--            {{ description }}-->
+<!--        {% else %}-->
+<!--            Description Comming Soon-->
+<!--        {% endif %}-->
+<!--    </p>-->
+
+<!--    <hr/>-->
+
+<!--    <p>-->
+<!--        {% if description != None and Description != '' %}-->
+<!--            {{ description }}-->
+<!--        {% else %}-->
+<!--            Description Comming Soon-->
+<!--        {% endif %}-->
+<!--    </p>-->
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <h1>{{ object.title }}</h1>
+    <h2>{{ object.description }}</h2>
+    <h3>{{ object.price }}</h3>
+    <h4>{{ object.summary }}</h4>
+
+{% endblock %}

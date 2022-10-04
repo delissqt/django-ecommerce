@@ -5,6 +5,8 @@ from django.db import models
 
 #todo NOTES: mapped this class to databases using "models"
 # Remember add the app in settings.py INSTALLED_APPS
+
+
 class Product(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField(blank=True, null=True)
