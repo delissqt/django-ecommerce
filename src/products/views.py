@@ -34,6 +34,10 @@ def product_detail_view(request):
 
 
 def product_form_view(request):
+    print(f'get, {request.GET}')
+    # print(f"get-title, {request.GET['title']}")
+    print(f'post, {request.POST}')
+    # print(f"post, {request.POST['title']}")
 
     context = {}
     return render(request, 'product/product_create.html', context)
