@@ -20,14 +20,20 @@ def product_detail_view(request):
     return render(request, "product/detail.html", context)
 
 
+# def product_form_view(request):
+#     form = ProductForm(request.POST or None)
+#
+#     if form.is_valid():
+#         form.save()
+#         form = ProductForm() # rerender the form (clean the form)
+#
+#     context = {
+#         'form': form
+#     }
+#     return render(request, 'product/product_create.html', context)
+
+
 def product_form_view(request):
-    form = ProductForm(request.POST or None)
 
-    if form.is_valid():
-        form.save()
-        form = ProductForm() # rerender the form (clean the form)
-
-    context = {
-        'form': form
-    }
+    context = {}
     return render(request, 'product/product_create.html', context)
