@@ -66,3 +66,15 @@ urlpatterns = [
     path('', home_view, name='home'),
 ]
 ``````
+
+
+## Overwrite default widget in forms
+
+TODO is possible to overwrite the default widget putting  the word "widget=" see the next example
+
+````commandline
+class RawProductForm(forms.Form):
+    title = forms.CharField()
+    description = forms.CharField(widget=forms.Textarea)
+    price = forms.DecimalField()
+````

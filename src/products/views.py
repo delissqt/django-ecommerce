@@ -46,7 +46,7 @@ def product_detail_view(request):
 
 
 def product_form_view(request):
-    form = RawProductForm(request.GET)
+    my_form = RawProductForm(request.GET)
 
     if request.method == "POST":
         my_form = RawProductForm(request.POST)
