@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from pages.views import home_view, contact_view, about_view, profile_view # OR from pages import views
-from products.views import product_detail_view, product_form_view
+from products.views import product_detail_view, product_create_view
 
 
 urlpatterns = [
@@ -28,5 +28,5 @@ urlpatterns = [
     path('about/', about_view),
     path('profile/', profile_view),
     path('product/', product_detail_view),
-    path('create/', product_form_view),
+    path('create/', product_create_view),
 ]
