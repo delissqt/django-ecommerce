@@ -27,6 +27,15 @@ def render_initial_data(request):
     return render(request, "product/product_create.html", context)
 
 
+# dynamic URL
+def dynamic_lookup_view(request, my_id):
+    obj = Product.objects.get(id=my_id)
+    context = {
+        'object': obj
+    }
+    return render(request, "product/detail.html", context)
+
+
 def product_detail_view(request):
     obj = Product.objects.get(id=1)
     # context = {

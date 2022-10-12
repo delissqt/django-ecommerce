@@ -131,3 +131,30 @@ class ProductForm(forms.Form):
             raise forms.ValidationError("This is not a valid email")
         return email
 ````
+
+
+Dynamic url
+NOTE: in dynamic_lookup_view funtion by default we have "request" parameter,
+is important to call the other one how was definied in urls.py file, in this case 
+was called as "my_id"
+In other words in bout places the paramater have the same name 
+
+`views.py`
+````commandline
+def dynamic_lookup_view (request, my_id):
+    obj = Product.objects.get(id=my_id)
+    context = {
+        "objects": obj
+    }
+    return render(request, "products/product_detail.html", context)
+````
+
+
+`urls.py`
+````commandline
+from products.views import  dynamic_lookup_view
+
+urlpatterns = [
+    path('products/<int:my_id>/', dynamic_lookup_view, name='product'),
+]
+````
