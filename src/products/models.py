@@ -1,5 +1,6 @@
 from django.db import models
 
+from django.urls import reverse
 # Create your models here.
 # todo  IMPORTANT: Apply makemigrations and migrate anytime models are modified
 
@@ -16,4 +17,5 @@ class Product(models.Model):
 
 
     def get_absolute_url(self):
-        return f"/products/{self.id}/"
+        # return f"/products/{self.id}/"
+        return reverse("product", kwargs={"my_id": self.id})
