@@ -21,6 +21,8 @@ from pages.views import home_view, contact_view, about_view, profile_view # OR f
 
 
 urlpatterns = [
+    path('blog/', include('blog.urls')),
+
     path('products/', include('products.urls')),
 
     path('admin/', admin.site.urls),
