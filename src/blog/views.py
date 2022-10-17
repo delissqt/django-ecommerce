@@ -41,3 +41,13 @@ class ArticleCreateView(CreateView):
 
     # def get_success_url(self): # for success not tested for me
     #     return "/"
+
+
+class ArticleUpdateView(UpdateView):
+    template_name = 'articles/article_create.html'
+    form_class = ArticleModelForm
+    queryset = Article.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(Article, id=id_)
