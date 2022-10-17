@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
+from django.urls import reverse
+
 from django.views.generic import (
     CreateView,
     DetailView,
@@ -51,3 +53,19 @@ class ArticleUpdateView(UpdateView):
     def get_object(self):
         id_ = self.kwargs.get('id')
         return get_object_or_404(Article, id=id_)
+
+
+class ArticleDeleteView(DeleteView):
+    template_name = 'articles/article_delete.html'
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(Article, id=id_)
+
+    # this way function for me understand and this working too, # way return when a element is deleted -me
+    # def get_success_url(self):
+    #     return "../../"
+
+    # way return when a element is deleted like video, working
+    def get_success_url(self):
+        return reverse("articles:article_list")
