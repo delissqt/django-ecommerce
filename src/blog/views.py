@@ -33,7 +33,11 @@ class ArticleCreateView(CreateView):
     template_name = 'articles/article_create.html'
     form_class = ArticleModelForm
     queryset = Article.objects.all()
+    # success_url = "/"  # for success not tested for me
 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
+
+    # def get_success_url(self): # for success not tested for me
+    #     return "/"
