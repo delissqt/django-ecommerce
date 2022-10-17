@@ -133,7 +133,8 @@ class ProductForm(forms.Form):
 ````
 
 
-Dynamic url
+## Dynamic url
+
 NOTE: in dynamic_lookup_view funtion by default we have "request" parameter,
 is important to call the other one how was definied in urls.py file, in this case 
 was called as "my_id"
@@ -157,4 +158,18 @@ from products.views import  dynamic_lookup_view
 urlpatterns = [
     path('products/<int:my_id>/', dynamic_lookup_view, name='product'),
 ]
+````
+
+## Display app in admin site
+For Display App in admin side and make CRUD add this line inside admin.py of the App
+
+file admin.py in products/admin.py
+````commandline
+from django.contrib import admin
+
+# Register your models here.
+
+from .models import Product
+
+admin.site.register(Product)
 ````

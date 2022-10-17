@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #own
     'products',
     'pages',
+    'blog',
 ]
 #todo NOTES INSTALED_APPS: This is a cornerstone. By default there´s a bunch of them installed by default
 
