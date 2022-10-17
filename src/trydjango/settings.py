@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'products',
     'pages',
     'blog',
+    'courses',
 ]
 #todo NOTES INSTALED_APPS: This is a cornerstone. By default there´s a bunch of them installed by default
 
