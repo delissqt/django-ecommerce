@@ -25,6 +25,16 @@ class CourseView(View):
     #     return render(request, 'about.html', {})
 
 
+class CourseListView(View):
+    template_name = "courses/course_list.html"
+    queryset = Course.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        context = {'object_list': self.queryset}
+        return render(request, self.template_name, context)
+
+
+
 #HTTP METHODS
 def my_function_base_view(request, *args, **kwargs):
     print(request.method)
