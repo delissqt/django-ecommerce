@@ -11,7 +11,7 @@ from .models import Course
 class CourseView(View):
     template_name = "courses/course_detail.html" # Detail View
 
-    def get(self, request, id=None, *args, **kwargs):
+    def get(self, request, id=1, *args, **kwargs):
         # get is the default
         context = {}
 
@@ -24,6 +24,10 @@ class CourseView(View):
     # def post(self, request, *args, **kwargs):
     #     return render(request, 'about.html', {})
 
+
+#TODO RENDER ONY ONE PRODUCT WITH ID=1
+# class MyListView(CourseView):
+#     queryset = Course.objects.filter(id=1)
 
 class CourseListView(View):
     template_name = "courses/course_list.html"
