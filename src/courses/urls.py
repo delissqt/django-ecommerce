@@ -3,7 +3,8 @@ from .views import (
     CourseView,
     CourseListView,
     # MyListView,
-    my_function_base_view
+    my_function_base_view,
+    CourseCreateView
 )
 
 app_name = 'courses'
@@ -15,4 +16,5 @@ urlpatterns = [
 
     # path('', my_function_base_view, name='course-list'),
     path('<int:id>/', CourseView.as_view(), name="courses-detail"),
+    path('create/', CourseCreateView.as_view(), name="courses-create"),
 ]
