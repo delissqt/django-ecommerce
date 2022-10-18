@@ -8,18 +8,27 @@ from .forms import CourseModelForm
 
 # Create your views here.
 
+class CourseObjectMixin(object):
+    model = Course
+    id = 'id'
 
-# BASE VIEW CLASS = VIEW
-class CourseView(View):
-    template_name = "courses/course_detail.html"  # Detail View
-
-    def get(self, request, id=1, *args, **kwargs):
-        # get is the default
-        context = {}
+    def get_object(self):
+        id = self.kwargs.get('id')
+        obj = None
 
         if id is not None:
-            obj = get_object_or_404(Course, id=id)
-            context['object'] = obj
+            obj = get_object_or_404(self.model, id=id)
+
+        return obj
+
+
+# BASE VIEW CLASS = VIEW
+class CourseView(CourseObjectMixin, View):
+    template_name = "courses/course_detail.html"  # Detail View
+
+    # get is the default
+    def get(self, request, id=None, *args, **kwargs):
+        context = {'object': self.get_object()}
         return render(request, self.template_name, context)
 
     # def post => that´s actually how you´d handle a form
@@ -62,15 +71,8 @@ class CourseCreateView(View):
         return render(request, self.template_name, context)
 
 
-class CourseUpdateView(View):
+class CourseUpdateView(CourseObjectMixin, View):
     template_name = "courses/course_update.html"
-
-    def get_object(self):
-        id = self.kwargs.get('id')
-        obj = None
-        if id is not None:
-            obj = get_object_or_404(Course, id=id)
-        return obj
 
     def get(self, request, id=None, *args, **kwargs):
         context = {}
@@ -97,17 +99,8 @@ class CourseUpdateView(View):
         return render(request, self.template_name, context)
 
 
-class CourseDeleteView(View):
+class CourseDeleteView(CourseObjectMixin, View):
     template_name = "courses/course_delete.html"
-
-    def get_object(self):
-        id = self.kwargs.get('id')
-        obj = None
-
-        if id is not None:
-            obj = get_object_or_404(Course, id = id)
-
-        return obj
 
     def get(self, request, id=None, *args, **kwargs):
         context = {}
