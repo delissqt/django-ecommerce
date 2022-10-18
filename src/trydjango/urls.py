@@ -20,7 +20,7 @@ from pages.views import home_view, contact_view, about_view, profile_view # OR f
 
 
 urlpatterns = [
-    # path('courses/', include('courses.urls')),
+    path('courses/', include('courses.urls')),
 
     path('blog/', include('blog.urls')),
 

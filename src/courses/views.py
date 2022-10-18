@@ -5,11 +5,14 @@ from django.views import View
 
 #BASE VIEW CLASS = VIEW
 class CourseView(View):
-    template_name = "courses/course_detail.html"
+    # template_name = "courses/course_detail.html"
+    template_name = "about.html"
 
-    def get(self, request, id=None,  *args, **kwargs):
+    # get is the default
+    def get(self, request,  *args, **kwargs):
         return render(request, self.template_name, {})
 
+    # def post => that´s actually how you´d handle a form
     # def post(self, request, *args, **kwargs):
     #     return render(request, 'about.html', {})
 
